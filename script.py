@@ -100,8 +100,15 @@ def getCiteDatas(url: str):
 
 
 def saveData(words, pdf_urls, name):
-  word_path = os.path.join("./files/word", f"{name}.docx")
-  csv_path = os.path.join("./files/csv", f"{name}.csv")
+  
+  word_path = os.path.join("./files/word")  # f"{name}.docx"
+  csv_path = os.path.join("./files/csv")  # f"{name}.csv"
+  if not os.path.exists(word_path):
+    os.makedirs(word_path)
+  if not os.path.exists(csv_path):
+    os.makedirs(csv_path)
+  word_path = os.path.join(word_path, f"{name}.docx")
+  csv_path = os.path.join(csv_path, f"{name}.csv")
   with open(csv_path, mode='w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(pdf_urls)
