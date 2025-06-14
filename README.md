@@ -31,3 +31,5 @@ google有反爬机制（人机验证），如果打印出 “请重新获取cook
 pip install -r requirements.txt
 python script.py
 ```
+### 注意！
+运行的时候尽量不要去切换页面，等到程序运行完成，后再去切换
