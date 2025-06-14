@@ -9,5 +9,5 @@
 5. 将 script.py 中 cookies 的 __Secure-1PSID 的 value 修改成新的 value
 6. 运行 python script.py 脚本
 ### 注意！
-google有反爬机制，如果打印出 “请重新获取cookies” 字样，则需要重复步骤 “3” -> “4”
+google有反爬机制（人机验证），如果打印出 “请重新获取cookies” 字样，则需要重复步骤 “3” -> “4”
 如果仍然不能运行，那就自己下载吧。
