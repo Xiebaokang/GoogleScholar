@@ -15,3 +15,19 @@ python script.py
 ### 注意！
 google有反爬机制（人机验证），如果打印出 “请重新获取cookies” 字样，则需要重复步骤 “3” -> “4”
 如果仍然不能运行，那就自己下载吧。
+
+## 添加新脚本
+新添加了一个脚本 selenium_script.py ，实现上面相同功能，但是需要用到chrome浏览器
+### 说明
+1. 首先设置 src_paper.txt 文件
+2. 打开chrome浏览器，查看浏览器版本版本，然后然后根据chrome版本号，打开网站下载 chromeDriver.exe 驱动，
+[chromeDriver](https://googlechromelabs.github.io/chrome-for-testing/#stable)，
+如果没有合适的版本就打开[chromeDriver](https://blog.csdn.net/zhoukeguai/article/details/113247342)
+![如图1](images/two.png)
+![如图2](images/three.png)
+3. 下载完成后解压 zip ，将文件夹中的 chromeDriver.exe 驱动移动到项目目录下 (./GoogleScholar)
+4. 安装依赖，运行脚本
+``` bash
+pip install -r requirements.txt
+python script.py
+```
