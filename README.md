@@ -32,4 +32,7 @@ pip install -r requirements.txt
 python selenium_script.py
 ```
 ### 注意！
-运行的时候尽量不要去切换页面，等到程序运行完成，后再去切换
+1. 运行的时候尽量不要去切换页面，等到程序运行完成，后再去切换
+2. mac系统修改脚本 selenium_script.py
+3. ![如图3](images/four.png)
+
