@@ -31,6 +31,23 @@ def readText(path: str):
     lines = data.split("\n")
     return lines
 
+
+def splitName(name: str):
+  result = []
+  for p1 in name.split(","):
+    for p2 in p1.split(":"):
+      for p3 in p2.split("["):
+        for p4 in p3.split("."):
+          result.append(p4)
+  result_1 = []
+  for p in result:
+    if len(p.split(" ")) >= 5:
+      result_1.append(p)
+  if len(result_1) >= 1:
+    return result_1[0].strip()
+  return "paper"
+
+
 def getCitePageUrl(name: str):
   # get cite Page url
   url = "https://scholar.google.com.hk/scholar?hl=zh-CN&as_sdt=0%2C5&q={}&btnG=".format(quote(name))
@@ -98,22 +115,19 @@ def getCiteDatas(url: str):
 
 
 def saveData(words, pdf_urls, name):
-  
-  word_path = os.path.join("./files/word")  # f"{name}.docx"
-  csv_path = os.path.join("./files/csv")  # f"{name}.csv"
-  if not os.path.exists(word_path):
-    os.makedirs(word_path)
-  if not os.path.exists(csv_path):
-    os.makedirs(csv_path)
-  word_path = os.path.join(word_path, f"{name}.docx")
-  csv_path = os.path.join(csv_path, f"{name}.csv")
+  name = splitName(name)
+  file_path = os.path.join(".\\files", name)
+  if not os.path.exists(file_path):
+    os.makedirs(file_path)
+  word_path = os.path.join(file_path, f"{name}.docx")
+  csv_path = os.path.join(file_path, f"{name}.cvs")
   with open(csv_path, mode='w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(pdf_urls)
   
   doc = Document()
-  doc.add_paragraph().add_run(f"{name}\n\n").bold = True
-  doc.add_paragraph("我们的工作被31篇论文引用，如下所示：\n\n")
+  doc.add_paragraph().add_run(f"{name}").bold = True
+  doc.add_paragraph("我们的工作被31篇论文引用，如下所示：\n")
   for i in range(len(words)):
     doc.add_paragraph().add_run(f"({i}){words[i]}").bold = True
     doc.add_paragraph("我们的工作是[]，被引用了  处，如下所示:\n\n\n\n")
