@@ -1,0 +1,4 @@
+Wang Y, Li X, Zang D, et al. Accelerating fm-index search for genomic data processing[C]//Proceedings of the 47th International Conference on Parallel Processing. 2018: 1-12.
+Ke Meng, Jiajia Li, &uangming Tan, Ninghui sun:A pattern based algorithmic autotuner for graph processing onGPUs. PPoPP 2019: 201.213
+Xueqi Li, Guangming Tan, Ninghui Sun:PIM-Align: A Processing-in-Memory Architecture for FM-Index Search Algorithm. J. Comput. Sci. Technol. 36(1): 56-70 (2021)
+Zhanyuan Di, En Shao, Guangming Tan:High-performance Migration Tool for Live Container in a Workflow. Int. J. Parallel Program. 49(5): 658-670 (2021)
