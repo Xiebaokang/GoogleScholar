@@ -129,7 +129,8 @@ def saveData(words, pdf_urls, name):
   doc.add_paragraph().add_run(f"{name}").bold = True
   doc.add_paragraph("我们的工作被31篇论文引用，如下所示：\n")
   for i in range(len(words)):
-    doc.add_paragraph().add_run(f"({i}){words[i]}").bold = True
+    idx = i + 1
+    doc.add_paragraph().add_run(f"({idx}){words[i]}").bold = True
     doc.add_paragraph("我们的工作是[]，被引用了  处，如下所示:\n\n\n\n")
   doc.save(word_path)
   
