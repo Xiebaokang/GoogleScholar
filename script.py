@@ -4,7 +4,6 @@ from urllib.parse import quote
 from bs4 import BeautifulSoup
 from docx import Document
 from docx.shared import Pt
-from tqdm import tqdm
 import time
 import random
 
@@ -37,7 +36,6 @@ def getCitePageUrl(name: str):
   url = "https://scholar.google.com.hk/scholar?hl=zh-CN&as_sdt=0%2C5&q={}&btnG=".format(quote(name))
   response = requests.get(url=url, proxies=proxies, headers=headers)
   soup = BeautifulSoup(response.text, 'lxml')
-  print(response.text)
   flb = soup.find(class_="gs_flb")
   for a in flb.find_all("a"):
     if "被引用" in a.text:
@@ -84,7 +82,7 @@ def getCiteDatas(url: str):
   pdfs = []
   response = requests.get(url=url, headers=headers, proxies=proxies, cookies=cookies)
   if "请进行人机身份验证" in response.text:
-    print("=========请重新获取cookies")
+    print("========= 请重新获取cookies")
     exit()
   page_index = 0
   while True:
@@ -128,6 +126,7 @@ def main():
     citePageUrl = getCitePageUrl(name=name)
     words, pdfs = getCiteDatas(url=citePageUrl)
     saveData(words=words, pdf_urls=pdfs, name=name)
+    print("== Finished.")
     time.sleep(2, 5)
     
 
