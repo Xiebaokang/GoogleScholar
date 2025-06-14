@@ -116,7 +116,7 @@ def getCiteDatas(url: str):
 
 def saveData(words, pdf_urls, name):
   name = splitName(name)
-  file_path = os.path.join(".\\files", name)
+  file_path = os.path.join("./files", name)
   if not os.path.exists(file_path):
     os.makedirs(file_path)
   word_path = os.path.join(file_path, f"{name}.docx")
@@ -124,11 +124,11 @@ def saveData(words, pdf_urls, name):
   with open(csv_path, mode='w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(pdf_urls)
-  
+  all_len = len(words)
   doc = Document()
   doc.add_paragraph().add_run(f"{name}").bold = True
-  doc.add_paragraph("我们的工作被31篇论文引用，如下所示：\n")
-  for i in range(len(words)):
+  doc.add_paragraph(f"我们的工作被{all_len}篇论文引用，如下所示：\n")
+  for i in range(all_len):
     idx = i + 1
     doc.add_paragraph().add_run(f"({idx}){words[i]}").bold = True
     doc.add_paragraph("我们的工作是[]，被引用了  处，如下所示:\n\n\n\n")
