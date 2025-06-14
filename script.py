@@ -78,7 +78,7 @@ def getCitePageDatas(context, page_index):
     # cite pdf url part
     other_page_div = divs[i].find(class_="gs_ri")
     download_url = other_page_div.find(id=cid)
-    download_urls.append([download_url.text, download_url["href"]])
+    download_urls.append([f"({i+1}){download_url.text}", download_url["href"]])
     time.sleep(random.randint(1, 3))
   return word_data, download_urls
     
